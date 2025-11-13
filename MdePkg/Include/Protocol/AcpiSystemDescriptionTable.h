@@ -242,6 +242,13 @@ EFI_STATUS
   OUT   EFI_ACPI_HANDLE *HandleOut
   );
 
+// SHERRY: produced by Rust.
+// I arbitrarily defined the guid as         efi::Guid::from_fields(0x7f3c1a92, 0x8b4e, 0x4d2f, 0xa6, 0xc9, &[0x3e, 0x12, 0xf4, 0xb8, 0xd7, 0xc1]);.
+typedef struct _EFI_ACPI_GET_PROTOCOL {
+  EFI_ACPI_GET_ACPI_TABLE2    GetAcpiTable;
+  EFI_ACPI_REGISTER_NOTIFY    RegisterNotify;
+} EFI_ACPI_GET_PROTOCOL;
+
 typedef struct _EFI_ACPI_SDT_PROTOCOL {
   ///
   /// A bit map containing all the ACPI versions supported by this protocol.
@@ -259,5 +266,6 @@ typedef struct _EFI_ACPI_SDT_PROTOCOL {
 } EFI_ACPI_SDT_PROTOCOL;
 
 extern EFI_GUID  gEfiAcpiSdtProtocolGuid;
+extern EFI_GUID  gEfiAcpiGetProtocolGuid; // SHERRY: Rust component will define + produce this.
 
 #endif // __ACPI_SYSTEM_DESCRIPTION_TABLE_H___
